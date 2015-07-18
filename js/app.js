@@ -24,6 +24,10 @@ phonecatApp.config(['$routeProvider',
         templateUrl: 'partials/forgot_password.html',
         controller: 'forgotPasswordPageCtrl'
       }).
+	  when('/home', {
+        templateUrl: 'partials/home.html',
+        controller: 'homePageCtrl'
+      }).
       otherwise({
         redirectTo: '/login'
       });

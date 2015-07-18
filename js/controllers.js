@@ -11,6 +11,8 @@ phonecatControllers.controller('loginPageCtrl', ['$scope', '$http', '$location',
 		}
 		$scope.submit = function(){
 			$scope.loading = true;
+			var pathurl = "/home";
+			$location.path(pathurl);
 		}
 	}
 ]);
@@ -30,6 +32,19 @@ phonecatControllers.controller('registrationPageCtrl', ['$scope', '$http', '$loc
 	
 /****** Forgot Password Page controller *****/
 phonecatControllers.controller('forgotPasswordPageCtrl', ['$scope', '$http', '$location',
+	function($scope, $http, $location) {  
+		$scope.showPage = function(pathurl){
+			console.log(pathurl);
+			$location.path(pathurl)
+		}
+		$scope.submit = function(){
+			$scope.loading = true;
+		}
+	}
+]);
+
+/****** Home Page controller *****/
+phonecatControllers.controller('homePageCtrl', ['$scope', '$http', '$location',
 	function($scope, $http, $location) {  
 		$scope.showPage = function(pathurl){
 			console.log(pathurl);
