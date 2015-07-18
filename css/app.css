@@ -1,0 +1,27 @@
+/* app css stylesheet */
+body{
+	background:url('../img/gradient-bg.jpg') center;
+	background-attachment:fixed;
+}
+img{
+	max-width:100%;
+}
+.transparent{
+	background:rgba(0,0,0,0.2);
+	border-color:rgba(0,0,0,0.2);
+}
+.form-below-left{
+	text-align:left;
+}
+.form-below-right{
+	text-align:right;
+}
+.form-below-left a, .form-below-right a{
+	color:#fff;
+}
+input[type="text"].transparent,input[type="email"].transparent, input[type="password"].transparent, input[type="submit"]{
+	color:#fff;
+}
+input[type="submit"].transparent{
+	background:rgba(0,0,0,0.5);
+}
