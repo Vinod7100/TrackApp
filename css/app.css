@@ -24,6 +24,8 @@ img{
 }
 input[type="text"].transparent,input[type="email"].transparent, input[type="password"].transparent, input[type="submit"], select{
 	color:#fff;
+	height:42px;
+	font-size:18px;
 }
 input[type="submit"].transparent{
 	background:rgba(0,0,0,0.5);
