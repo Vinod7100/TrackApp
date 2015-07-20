@@ -25,3 +25,10 @@ input[type="text"].transparent,input[type="email"].transparent, input[type="pass
 input[type="submit"].transparent{
 	background:rgba(0,0,0,0.5);
 }
+.transparent-box{
+	padding:15px 0px;
+	margin:0px 5px;
+	background:rgba(255,255,255,0.2);
+	border-radius:4px;
+	box-shadow: 0px 0px 2px 0px #000;
+}
