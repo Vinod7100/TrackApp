@@ -19,7 +19,10 @@ img{
 .form-below-left a, .form-below-right a{
 	color:#fff;
 }
-input[type="text"].transparent,input[type="email"].transparent, input[type="password"].transparent, input[type="submit"]{
+.form-control{
+	color:#fff;
+}
+input[type="text"].transparent,input[type="email"].transparent, input[type="password"].transparent, input[type="submit"], select{
 	color:#fff;
 }
 input[type="submit"].transparent{
@@ -48,4 +51,13 @@ input[type="submit"].transparent{
 .list-group-item:hover, .list-group-item:focus{
 	background:rgba(0,0,0,0.2) !important;
 	color:#fff;
+}
+.modal-content{
+	background:url('../img/gradient-bg.jpg') center;
+}
+.modal-header{
+	border-bottom:none;
+}
+.modal-footer{
+	border-top:none;
 }
