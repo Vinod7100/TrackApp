@@ -6,7 +6,8 @@ var phonecatApp = angular.module('trackingApp', [
   'ngRoute',
   'ngSanitize',
   'phonecatControllers',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'shoppinpal.mobile-menu'
 ]);
 
 phonecatApp.config(['$routeProvider',

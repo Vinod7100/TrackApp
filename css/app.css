@@ -32,3 +32,20 @@ input[type="submit"].transparent{
 	border-radius:4px;
 	box-shadow: 0px 0px 2px 0px #000;
 }
+.btn-default{
+	background:rgba(255,255,255,0.2);
+	padding:3px 7px;
+	color:#fff;
+}
+.btn-default:focus, .btn-default:hover{
+	background:rgba(0,0,0,0.2);
+	color:#fff;
+}
+.list-group-item{
+	background: rgba(255,255,255,0.3);
+	color: #fff !important;
+}
+.list-group-item:hover, .list-group-item:focus{
+	background:rgba(0,0,0,0.2) !important;
+	color:#fff;
+}
