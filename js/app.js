@@ -29,6 +29,10 @@ phonecatApp.config(['$routeProvider',
         templateUrl: 'partials/home.html',
         controller: 'homePageCtrl'
       }).
+	  when('/verify', {
+        templateUrl: 'partials/verify.html',
+        controller: 'verifyPageCtrl'
+      }).
       otherwise({
         redirectTo: '/login'
       });

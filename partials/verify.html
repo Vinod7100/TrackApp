@@ -16,23 +16,13 @@
 				</div>
 				<form class="form" ng-submit="submit()">
 					<div class="form-group">
-						<select class="form-control transparent" ng-model="type">
-							<option value="" disabled selected>User Type</option>
-							<option value="parent">Parent</option>
-							<option value="child">Child</option>
-						</select>
+						<label>Please check your E-mail to get verification code.</label>
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control transparent" name="username" ng-model="username" placeholder="Username"/>
+						<input type="text" class="form-control transparent" name="tocken" ng-model="tocken" placeholder="Enter Your verification code here..."/>
 					</div>
 					<div class="form-group">
-						<input type="email" class="form-control transparent" name="email" ng-model="email" placeholder="Eamil"/>
-					</div>
-					<div class="form-group">
-						<input type="password" class="form-control transparent" name="password" ng-model="password" placeholder="Password"/>
-					</div>
-					<div class="form-group">
-						<input type="submit" class="form-control transparent" name="submit" value="Register"/>
+						<input type="submit" class="form-control transparent" name="submit" value="Verify"/>
 					</div>
 				</form>
 			</div>

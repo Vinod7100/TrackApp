@@ -5,10 +5,53 @@ var phonecatControllers = angular.module('phonecatControllers', []);
 /****** Login Page controller *****/
 phonecatControllers.controller('loginPageCtrl', ['$scope', '$http', '$location',
 	function($scope, $http, $location) { 
+	
+	if (localStorage.getItem("trackUsername") !== "") {
+		$scope.trackUsername = localStorage.getItem("trackUsername");
+		$scope.trackPassword = localStorage.getItem("trackPassword");
+		$scope.loading = true;
+		$http.get('http://parssv.com/trackapp_php/?action=login&username='+ $scope.trackUsername +'&password='+ $scope.trackPassword).success(function(data) {
+			$scope.userData = data;
+			$scope.loading = false;
+			if($scope.userData.status == 'verified'){
+				var pathurl = "/home";
+				console.log(pathurl);
+				$location.path(pathurl);
+			}
+		});
+	}
+	
+	
+	$scope.username = "";
+	$scope.password = "";
+	
 		$scope.submit = function(){
 			$scope.loading = true;
-			var pathurl = "/home";
-			$location.path(pathurl);
+			$http.get('http://parssv.com/trackapp_php/?action=login&username='+ $scope.username +'&password='+ $scope.password).success(function(data) {
+			$scope.userDetails = data;
+			$scope.loading = false;
+			console.log($scope.userDetails);
+			if($scope.userDetails.status == 'verified'){
+				var pathurl = "/home";
+				console.log(pathurl);
+				
+				// Check browser support
+				if (typeof(Storage) != "undefined") {
+					// set localstorage username and password variables
+					localStorage.setItem("trackUsername", $scope.username);
+					localStorage.setItem("trackPassword", $scope.password);
+					//saving username and password to localstoarge.
+					$scope.trackUsername = localStorage.getItem("trackUsername");
+					$scope.trackPassword = localStorage.getItem("trackPassword");
+					
+					$location.path(pathurl)  //uncomment to redirect to the profile page
+				} 
+				else {
+					document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+				}
+				
+			}
+		});
 		}
 	}
 ]);
@@ -16,8 +59,38 @@ phonecatControllers.controller('loginPageCtrl', ['$scope', '$http', '$location',
 /****** Registration Page controller *****/
 phonecatControllers.controller('registrationPageCtrl', ['$scope', '$http', '$location',
 	function($scope, $http, $location) {  
+		
+	$scope.username = "";
+	$scope.email = "";
+	$scope.password = "";
+	
+	$scope.submit = function() {
+		$scope.loading = true;
+		$http.get('http://parssv.com/trackapp_php/?action=register&username='+ $scope.username +'&email='+ $scope.email +'&password='+ $scope.password +'&type='+ $scope.type).success(function(data) {
+			$scope.userDetails = data;
+			$scope.loading = false;
+			console.log($scope.userDetails);
+			if($scope.userDetails.success == 'true'){
+				$scope.userID = $scope.userDetails.id;
+				var pathurl = "/verify";
+				console.log(pathurl);
+				$location.path(pathurl);
+			}
+		});
+	};
+	}
+]);
+
+/****** Verify User Page controller *****/
+phonecatControllers.controller('verifyPageCtrl', ['$scope', '$http', '$location',
+	function($scope, $http, $location) {  
 		$scope.submit = function(){
 			$scope.loading = true;
+			$http.get('http://parssv.com/trackapp_php/?action=verify&tocken='+ $scope.tocken).success(function(data) {
+			$scope.userDetails = data;
+			$scope.loading = false;
+			console.log($scope.userDetails);
+		});
 		}
 	}
 ]);
@@ -27,9 +100,12 @@ phonecatControllers.controller('forgotPasswordPageCtrl', ['$scope', '$http', '$l
 	function($scope, $http, $location) {  
 		$scope.submit = function(){
 			$scope.loading = true;
-		}
+			$http.get('http://parssv.com/trackapp_php/?action=recover&email='+ $scope.email).success(function(data) {
+			$scope.userDetails = data;
+			$scope.loading = false;
+		});
 	}
-]);
+}]);
 
 /****** Home Page controller *****/
 phonecatControllers.controller('homePageCtrl', ['$scope', '$http', '$modal', '$location',
